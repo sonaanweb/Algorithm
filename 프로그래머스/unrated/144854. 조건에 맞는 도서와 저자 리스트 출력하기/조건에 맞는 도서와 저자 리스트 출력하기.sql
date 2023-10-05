@@ -3,6 +3,6 @@
 SELECT b.book_id, a.author_name,
 date_format(b.published_date, '%Y-%m-%d') published_date
 FROM book b
-LEFT JOIN author a USING(author_id)
+JOIN author a USING(author_id)
 WHERE b.category = '경제'
 ORDER BY published_date ASC;
