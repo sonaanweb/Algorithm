@@ -1,11 +1,11 @@
 class Solution {
     public int[] solution(long n) {
-        String str = String.valueOf(n); // 문자열로 변환
-        int len = str.length();     // 자리 수
-        int[] answer = new int[len];
+        int length = Long.toString(n).length();
+        int[] answer = new int[length];
         
-        for (int i = 0; i < len; i++){
-            answer[i] = str.charAt(len - 1 - i) - '0';
+        for(int i = 0; i < length; i++){
+            answer[i] = (int) (n % 10);
+            n /= 10;
         }
         
         return answer;
