@@ -32,3 +32,36 @@ public class String11 {
         System.out.println(T.solution(str));
     }
 }
+
+
+
+// StringBuilder 방법 추가 풀이 ✅
+
+public class Main {
+
+    public String solution(String str){
+        StringBuilder answer = new StringBuilder(); // 정답 상자
+        str = str + " ";
+        int cnt = 1; // 1부터 시작
+        for (int i = 0; i < str.length() - 1; i++){
+            if(str.charAt(i) == str.charAt(i+1)){
+                cnt++; // 1. 앞 뒤 같을 시 증가
+            } else { // 2. 다른 문자 시작 (지금까지 모은 것 출력)
+                answer.append(str.charAt(i));
+
+                if(cnt > 1){ // 3. 1 이상인 것은 cnt 같이 출력
+                    answer.append(cnt);
+                }
+                cnt = 1; // 4. cnt 초기화
+            }
+        }
+        return answer.toString(); // StringBuilder == toString 잊지 말기
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        String str = kb.next();
+        System.out.print(T.solution(str));
+    }
+}
