@@ -26,6 +26,28 @@ public class String9 {
 }
 
 
+// (+) StringBuilder 사용 방법 추가
+public class Main {
+
+    public int solution(String str){ // 결론적으로 정수만 출력하므로 int 선언
+        StringBuilder answer = new StringBuilder(); // 숫자만 담을 곳 생성
+        for(char x : str.toCharArray()){
+            if(Character.isDigit(x)){
+                answer.append(x); // append 사용
+            }
+        }
+        return Integer.parseInt(answer.toString());
+    }
+
+    public static void main(String[] args){
+        Main T = new Main();
+        Scanner kb = new Scanner(System.in);
+        String str = kb.next();
+        System.out.print(T.solution(str));
+    }
+}
+
+
 /**
  * 숫자        0 | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9
  * ASCII(A)   48 | 49 | 50 | 51 | 52 | 53 | 54 | 55 | 56 | 57
