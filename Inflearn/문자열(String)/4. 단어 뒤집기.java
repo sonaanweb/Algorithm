@@ -14,11 +14,20 @@ import java.util.Scanner;
 // 1. StringBuilder
 public class String4 {
 
-    public ArrayList<String> solution(int n, String[] str){
+    // public ArrayList<String> solution(int n, String[] str){
+    //     ArrayList<String> answer = new ArrayList<>();
+    //     for(String x : str){
+    //         String tmp = new StringBuilder(x).reverse().toString();      // 문자열 x -> Stringbuiler 객체 변환 -> reverse() -> toString 문자열 변환 -> tmp 저장
+    //         answer.add(tmp);
+    //     }
+    //     return answer;
+    // }
+
+    // (+) n 제거 해결 풀이 추가
+    public ArrayList<String> solution(String[] str){
         ArrayList<String> answer = new ArrayList<>();
         for(String x : str){
-            String tmp = new StringBuilder(x).reverse().toString();      // 문자열 x -> Stringbuiler 객체 변환 -> reverse() -> toString 문자열 변환 -> tmp 저장
-            answer.add(tmp);
+            answer.add(new StringBuilder(x).reverse().toString());
         }
         return answer;
     }
@@ -32,7 +41,7 @@ public class String4 {
         for (int i=0; i<n; i++){
             str[i] = kb.next();
         }
-        for(String x : T.solution(n, str)){
+        for(String x : T.solution(str)){ // n 제거
             System.out.println(x); // x = 하나하나의 단어
         }
     }
