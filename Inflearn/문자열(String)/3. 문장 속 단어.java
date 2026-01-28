@@ -64,6 +64,33 @@ public class Main {
 }
 
 
+// 3. max 사용으로 가독성 올리기 추가 풀이 ✅
+
+public class WordInSentence {
+
+    public String solution(String str) {
+        String answer = "";
+        int max = 0; // 길이
+
+        String[] words = str.split(" ");
+        for(String x : words){
+            if (x.length() > max){ // ex) 4 > 4 변화 없어서 문제 사항 조건 만족
+                max = x.length();
+                answer = x;
+            }
+        }
+        return answer;
+    }
+
+    public static void main(String[] args){
+        WordInSentence T = new WordInSentence();
+        Scanner kb = new Scanner(System.in);
+        String str = kb.nextLine(); // 각 단어가 공백으로 나누어져 있으므로 공백도 스캔
+        System.out.println(T.solution(str));
+    }
+}
+
+
 
 /**
  * 1. Split : 표현식, 특정 문자를 기준으로 문자열을 나누어 배열 반환
