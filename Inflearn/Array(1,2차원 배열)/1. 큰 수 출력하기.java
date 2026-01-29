@@ -14,11 +14,11 @@ import java.util.Scanner;
  */
 public class Array1 {
 
-    public ArrayList<Integer> solution(int n, int[] arr){ // 입력 솔루션
+    public ArrayList<Integer> solution(int n, int[] arr){ // 입력 솔루션 ✅ 솔루션, 리턴 값 실수 개선필요
         ArrayList<Integer> answer = new ArrayList<>();
-        answer.add(arr[0]); // 첫번째 수 무조건 출력
-        for(int i =1; i<n; i++){
-            if(arr[i] > arr[i-1]) {
+        answer.add(arr[0]); // 첫번째 수 무조건 출력 -> (문제 조건 충족)
+        for(int i=1; i<n; i++){ // 땨라서 배열 인덱스 1부터 시작
+            if(arr[i] > arr[i-1]) { // 앞 뒤 비교
                 answer.add(arr[i]);
             }
         }
@@ -29,7 +29,7 @@ public class Array1 {
         Array1 T = new Array1();
         Scanner kb = new Scanner(System.in);
         int n = kb.nextInt(); // 첫줄 : n개 정수를 입력할 것이다
-        int [] arr = new int[n]; // 두번째 줄 : 배열 생성 (동적 배열)
+        int [] arr = new int[n]; // 두번째 줄 : 배열 생성 - n개의 입력 크기가 주어진 고정 배열
         for(int i=0; i<n; i++){
             arr[i] = kb.nextInt(); // 저장
         }
