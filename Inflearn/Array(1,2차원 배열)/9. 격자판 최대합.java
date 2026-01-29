@@ -14,18 +14,20 @@ public class Array9 {
         int answer = Integer.MIN_VALUE;
         int sum1, sum2;     // sum1 = 행의 합, sum2 = 열의 합
         for(int i=0; i<n; i++){
-            sum1 = sum2 = 0;
-            for(int j=0; j<n; j++){
-                sum1 += arr[i][j];  // 행(i) 고정
-                sum2 += arr[j][i];  // 열(j) 고정
+            sum1 = sum2 = 0; // 새 줄을 시작할 때 마다 비워야 함
+            for(int j=0; j<n; j++){  // j = 한 칸씩 옆으로 이동
+                sum1 += arr[i][j];  // 행(i) 고정 - 가로 걷기 (0,0) ~ (0,1..)
+                sum2 += arr[j][i];  // 열(j) 고정 - 세로 걷기 (0,0) ~ (1,0..)
             }
-            answer = Math.max(answer, sum1);    // 둘 중 큰 값 넣음
+            answer = Math.max(answer, sum1);    // 둘 중 큰 값
             answer = Math.max(answer, sum2);
         }
+
+        // 대각선 합 두가지
         sum1 = sum2 = 0;
         for(int i=0; i<n; i++){
             sum1 += arr[i][i];  // 대각선 합(왼->오아래 방향) => 행과 열 번호가 같은 것들
-            sum2 += arr[i][n-i-1];  // 대각선 합(오->왼아래 방향)
+            sum2 += arr[i][n-i-1];  // 대각선 합(오->왼아래 방향) => 전체 크기 n에서 층수 i를 빼고 1을 빼줌
         }
         answer = Math.max(answer, sum1);
         answer = Math.max(answer, sum2);
@@ -50,11 +52,17 @@ public class Array9 {
 
 
 /**
- 5
+ 5*5 격자판
+ 
  10 13 10 12 15
  12 39 30 23 11
  11 25 50 53 15
  19 27 29 37 27
  19 13 13 13 19
  155
+
+arr [i] [n-i-1]
+arr 0   5-0-1 (0,4)
+arr 1   5-1-1 (1,3) ..
+그림 그려서 이해하면 쉽다!
  */
